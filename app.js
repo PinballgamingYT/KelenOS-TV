@@ -6,8 +6,11 @@ const port = process.env.PORT || 3000;
 app.use('/assets', express.static(path.join(__dirname, 'pages/assets')));
 app.use(express.static(path.join(__dirname, 'pages'))); 
 
+const homePath = path.join(__dirname, 'pages', 'home.html');
+console.log('Resolved home path:', homePath);
+
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'pages', 'home.html'));
+  res.sendFile(homePath);
 });
 
 // Health check endpoint
