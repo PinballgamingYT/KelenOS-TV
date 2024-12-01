@@ -4,9 +4,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use('/assets', express.static(path.join(__dirname, 'pages/assets')));
-app.use(express.static(path.join(__dirname, 'pages'))); 
+app.use(express.static(path.join(__dirname, 'pages')));
 
-const homePath = path.join(__dirname, 'pages', 'home.html');
+const homePath = path.resolve('pages/home.html'); // Using path.resolve to get absolute path
 console.log('Resolved home path:', homePath);
 
 app.get('/', (req, res) => {
